@@ -102,4 +102,9 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: cos-cdn
+  cloud: tencent
+  bucket: bimfan-1258700829
+  region: ap-chongqing
+  secretId: SecretId
+  secretKey: SecretKey

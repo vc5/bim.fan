@@ -1,0 +1,31 @@
+name: Deploy
+
+on:
+  push:
+    braches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
+    - name: Setup Hexo & COS env
+      env:
+        SecretId: ${{ secrets.SecretId }}
+        SecretKey: ${{ secrets.SecretKey }}
+
+      run: |
+        npm install hexo-cli -g
+        npm install
+        sed -i "s/SecretId/${SecretId}/" _config.yml
+        sed -i "s/SecretKey/${SecretKey}/" _config.yml
+    
+    - name: Deploy to COS
+      run: |
+        hexo clean && hexo g && hexo d
