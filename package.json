@@ -12,7 +12,8 @@
     "version": "5.4.0"
   },
   "dependencies": {
-    "bulma-stylus": "^0.9.1",
+    "bulma-stylus": "^0.8.0",
+    "co": "^4.6.0",
     "hexo": "^5.4.0",
     "hexo-component-inferno": "^0.10.5",
     "hexo-deployer-cos-cdn": "^1.7.1",
